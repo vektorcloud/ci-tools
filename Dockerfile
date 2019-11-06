@@ -36,7 +36,9 @@ ENV CLOUDSDK_INSTALL_DIR /opt
 ENV CLOUDSDK_CORE_PROJECT lsms-183111
 ENV PATH=$PATH:/opt/google-cloud-sdk/bin
 
-RUN wget -O /tmp/install.sh https://sdk.cloud.google.com && bash /tmp/install.sh
+RUN wget -O /tmp/install.sh https://sdk.cloud.google.com && \
+    bash /tmp/install.sh && \
+    pip install -U crcmod
 
 COPY run.sh /run.sh
 ENTRYPOINT ["/run.sh"]
