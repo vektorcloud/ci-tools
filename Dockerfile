@@ -33,7 +33,6 @@ RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_V
 
 ENV GOOGLE_APPLICATION_CREDENTIALS /account.json
 ENV CLOUDSDK_INSTALL_DIR /opt
-ENV CLOUDSDK_CORE_PROJECT lsms-183111
 ENV PATH=$PATH:/opt/google-cloud-sdk/bin
 
 RUN wget -O /tmp/install.sh https://sdk.cloud.google.com && \
