@@ -7,7 +7,7 @@ RUN apk add --no-cache bash build-base ca-certificates curl coreutils docker \
 ENV KUBE_VERSION v1.16.1
 # from https://api.github.com/repos/kubernetes/kops/releases/latest
 ENV KOPS_VERSION 1.10.0
-ENV HELM_VERSION v2.10.0
+ENV HELM_VERSION v2.17.0
 ENV TERRAFORM_VERSION 0.12.10
 
 WORKDIR /build
@@ -21,7 +21,7 @@ RUN wget -O /usr/local/bin/kops https://github.com/kubernetes/kops/releases/down
    chmod +x /usr/local/bin/kops
 
 # install helm
-RUN wget -O helm.tgz https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz && \
+RUN wget -O helm.tgz https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz && \
     tar -xvf helm.tgz && \
     mv -v linux-amd64/helm /usr/local/bin/ && \
     rm -rf /build/*
